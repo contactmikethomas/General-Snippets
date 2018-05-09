@@ -1,0 +1,10 @@
+2018-05-09T10:01:26.229+0100    preparing collections to restore from
+2018-05-09T10:01:26.230+0100    reading metadata for m101.funnynumbers from dump/m101/funnynumbers.metadata.json
+2018-05-09T10:01:26.231+0100    reading metadata for m101.hw1 from dump/m101/hw1.metadata.json
+2018-05-09T10:01:26.260+0100    restoring m101.funnynumbers from dump/m101/funnynumbers.bson
+2018-05-09T10:01:26.291+0100    restoring m101.hw1 from dump/m101/hw1.bson
+2018-05-09T10:01:26.293+0100    no indexes to restore
+2018-05-09T10:01:26.293+0100    finished restoring m101.funnynumbers (100 documents)
+2018-05-09T10:01:26.294+0100    no indexes to restore
+2018-05-09T10:01:26.294+0100    finished restoring m101.hw1 (1 document)
+2018-05-09T10:01:26.294+0100    done
