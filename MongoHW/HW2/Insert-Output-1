@@ -1,0 +1,9 @@
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5afc572708933e61f73ed198"),
+		ObjectId("5afc572708933e61f73ed199"),
+		ObjectId("5afc572708933e61f73ed19a"),
+		ObjectId("5afc572708933e61f73ed19b")
+	]
+}
