@@ -1,0 +1,50 @@
+2018-05-16T17:28:29.259+0100 E QUERY    [thread1] BulkWriteError: 3 write errors in bulk operation :
+BulkWriteError({
+	"writeErrors" : [
+		{
+			"index" : 0,
+			"code" : 11000,
+			"errmsg" : "E11000 duplicate key error collection: test.moviesScratch index: _id_ dup key: { : \"tt0084726\" }",
+			"op" : {
+				"_id" : "tt0084726",
+				"title" : "Star Trek II: The Wrath of Khan",
+				"year" : 1982,
+				"type" : "movie"
+			}
+		},
+		{
+			"index" : 1,
+			"code" : 11000,
+			"errmsg" : "E11000 duplicate key error collection: test.moviesScratch index: _id_ dup key: { : \"tt0796366\" }",
+			"op" : {
+				"_id" : "tt0796366",
+				"title" : "Star Trek",
+				"year" : 2009,
+				"type" : "movie"
+			}
+		},
+		{
+			"index" : 2,
+			"code" : 11000,
+			"errmsg" : "E11000 duplicate key error collection: test.moviesScratch index: _id_ dup key: { : \"tt0084726\" }",
+			"op" : {
+				"_id" : "tt0084726",
+				"title" : "Star Trek II: The Wrath of Khan",
+				"year" : 1982,
+				"type" : "movie"
+			}
+		}
+	],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 2,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+BulkWriteError@src/mongo/shell/bulk_api.js:369:48
+BulkWriteResult/this.toError@src/mongo/shell/bulk_api.js:333:24
+Bulk/this.execute@src/mongo/shell/bulk_api.js:1177:1
+DBCollection.prototype.insertMany@src/mongo/shell/crud_api.js:314:5
+@(shell):1:1
