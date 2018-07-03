@@ -1,0 +1,171 @@
+Linux Set Up
+
+Firefox plugins:
+
+ghostery - https://www.ghostery.com/?utm_source=ghostery.com&utm_campaign=install_ghostery_hp
+adblock ultimate - https://addons.mozilla.org/en-GB/firefox/addon/adblocker-ultimate/
+
+Chromium
+
+sudo apt-get install chromium-browser
+
+Deluge Client – (distributed filesharing) https://dev.deluge-torrent.org/wiki/Installing/Linux/Ubuntu#AddDelugePPARepository
+
+sudo add-apt-repository ppa:deluge-team/ppa
+sudo apt-get update
+sudo apt-get install deluge
+
+flatpak – (for installing flatpck software, e.g. GIMP) https://flatpak.org/setup/Ubuntu/
+
+sudo add-apt-repository ppa:alexlarsson/flatpak
+sudo apt update
+sudo apt install flatpak
+sudo apt install gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+restart the computer
+
+gbedi – for installing deb packages
+
+sudo apt-get install gdebi-core
+
+GIMP - https://www.gimp.org/downloads/
+
+flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
+
+Foxit - (PDF viewer) https://www.foxitsoftware.com/pdf-reader/
+
+download latest version
+tar xzvf FoxitReader2.4.1.0609_Server_x64_enu_Setup.run.tar.gz 
+sudo chmod a+x FoxitReader.enu.setup.2.4.1.0609\(r08f07f8\).x64.run
+sudo ./FoxitReader.enu.setup.2.4.1.0609\(r08f07f8\).x64.run 
+install in /opt/foxitreader
+rm FoxitReader2.4.1.0609_Server_x64_enu_Setup.run.tar.gz
+rm FoxitReader.enu.setup.2.4.1.0609\(r08f07f8\).x64.run
+
+google drive cli - https://github.com/odeke-em/drive
+
+sudo add-apt-repository ppa:twodopeshaggy/drive
+sudo apt-get update
+sudo apt-get install drive
+ensure you are logged into google drive in the browswer
+drive init ~/gdrive
+get credentials on prompt
+cd ~/gdrive
+test - drive pull
+
+Development tools
+
+RStudio - https://cran.rstudio.com/bin/linux/ubuntu/README.html
+
+sudo echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" | sudo tee -a /etc/apt/sources.list
+gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+gpg -a --export E084DAB9 | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install r-base r-base-dev
+Download latest version - https://www.rstudio.com/products/rstudio/download/#download
+cd /home/de-admin/Downloads
+sudo gdebi rstudio-xenial-1.1.453-amd64.deb
+rm rstudio-xenial-1.1.453-amd64.deb
+
+Rshiny server - https://www.rstudio.com/products/shiny/download-server/
+
+sudo su - \ -c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
+cd /home/de-admin/Downloads
+wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.7.907-amd64.deb
+sudo gdebi shiny-server-1.5.7.907-amd64.deb
+rm shiny-server-1.5.7.907-amd64.deb
+
+Python 3.6.5 – installed as default with Ubuntu 18.04 LTS 
+
+test – python3 -V
+sudo apt install python3-pip
+test - pip3 -V
+pip3 install --upgrade pip
+
+Python 2.7 - 
+
+sudo apt install python2.7 python-pip
+test – python -V
+test - pip -V
+
+Java JRE/JDK – http://openjdk.java.net/install/
+
+sudo apt-get install openjdk-8-jdk
+test – java -version
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+test – echo $JAVA_HOME
+
+Scala - https://docs.scala-lang.org/getting-started-sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html
+
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+sudo apt-get update
+sudo apt-get install sbt
+cd /home/de-admin/Documents
+sbt new scala/hello-world.g8
+When prompted, name the application hello-world
+cd into hello-world
+sbt
+run 
+Exit
+cd ../
+cd rm -r hello-world
+
+MongoDB - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+sudo apt-get update
+sudo apt-get install mongodb-org
+sudo service mongod start
+mongo --host 127.0.0.1:27017
+quit
+sudo service mongod stop
+
+Apache - http://httpd.apache.org/docs/current/install.html
+
+sudo apt install apache2
+test - sudo service apache2 start
+go to http://127.0.0.1/
+
+Mysql - https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#repo-qg-apt-repo-manual-setup
+
+sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb
+sudo apt-get update
+sudo apt-get install mysql-server
+test - sudo service mysql status
+rm mysql-apt-config_0.8.10-1_all.deb 
+
+Mysql Workbench
+
+sudo apt-get install mysql-workbench
+test - mysql-workbench
+
+PHP - http://php.net/manual/en/install.unix.debian.php
+sudo apt-get install php7.2-common libapache2-mod-php7.2 php7.2-cli
+test - php -version
+
+jupyter notebook - http://jupyter.org/install
+https://ipython.readthedocs.io/en/stable/install/kernel_install.html
+
+python3 -m pip install jupyter ipykernel --user
+python3 -m ipykernel install –user (probably not needed)
+python -m pip install ipykernel --user
+python -m ipykernel install --user
+test -jupyter notebook
+
+jupyter lab - http://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
+
+python3 -m pip install jupyterlab --user
+test -jupyter lab
+
+jupyter notebook extensions - https://github.com/ipython-contrib/jupyter_contrib_nbextensions
+
+pip install jupyter_contrib_nbextensions --user
+jupyter contrib nbextension install --user
+
+git command line - 
+
+sudo add-apt-repository ppa:git-core/ppa 
+sudo apt-get update
+sudo apt-get install git
