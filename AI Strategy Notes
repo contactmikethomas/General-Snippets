@@ -1,0 +1,136 @@
+AI Strategy
+
+AI is a tool and nothing else. Really it's a set of tools.
+If someone develops AGI then we can worry about non-tool applicaitons later.
+AI is a tool like cutlery.
+
+Cutlery: What is our cutlery strategy?
+    - cutlery is a new tool used for food consumption
+    - the private sector routinely uses cutlery for food consumption
+    - cutlery can be used for almost all food consuption in the department.
+    - we should impliment cutlery everywhere that it can be implimented
+However:
+    - Obvious reasons the above stratgy is not actually a good strategy:
+        sandwiches.
+        no-one needs a knife to eat yoghurt.
+        sometimes contracte, the private sector, and the public should use their own cutlery to save on washing up
+    - This is not a cutlery implimentation strategy, and clearly makes no conceptual progress. "Can haz AI?" is not a strategy.
+    - The problem is that cutlery is not one tool at one level of sophisticaion
+        - a knife, fork and spoon are specialised
+        - you can use a regular knife to eat steak, but a steak knife is better
+    - The temptation is to classity tasks by complexity, but this is wrong: a "complex cultery item" still has too many different functions to apply.
+        - "Where can we use deep learning?" is roughly equivalent to asking: "Where can I apply slotted spoons, nut-crackers and butter knives?"
+        - There is no meaninful systematic way to answer either question.
+    - Equally, it's temption to classify a task by how useful cutlery is to the task.
+        - "Which tasks can be completely automated?" is roughly equivalent to asking: "Who eats the fewest sandwiches in the department?"
+        - At best this can give you a list of potential projects for cutlery. It is not a strategy cannot lead to strategic decision making.
+        - It fails to answer the question, "What is cutlery good for?"
+    - A better set of questions to ask are: what are the basic functions of cutlery?
+        - cutting, scooping, stirring, and spearing
+        - combination functions like: spearing something in place to for cutting
+
+    - What needs scooping the deparment?
+        -  soup, yoghurt.
+    - Let's impliment spoons wherever there is soup and yoghurt.
+    - Now we have reduced the strategy issue to a series of governance and implimentation issues:
+        - Are there any other scooping activitise we have missed? How can we keep abreast of new scooping needs?
+        - Where does the department have soup and yoghurt?
+        - Which soup and yoghurt areas should get spoons first?
+        - Are there any complex scooping needs (such as using a long handled, slotted spoon too scoop chips out of boiling oil)?
+
+So, the first question we nee to answer is: what are the basic functions of AI?
+
+Level 1, functions and inputs
+Recognise - Process - Generate
+[What is underneath these?]
+
+This is still too generic, we need to define different inputs. 
+    - Images (of things, of documenets)
+    - Text (typed, handwriited)
+    - Audio
+    - Sensor data
+    - Strutured data
+
+Now we can populate each square with examples:
+Recognise
+    - read the values on a return [digitisation is better than machine learning e.g. make it a digital form! ML shouldn't cover bad design]
+    - categorise the topic of a letter
+    - transcribe the audio of a call
+
+Now we can map these tasks onto existing our tasks:
+    What are the our tasks?
+    [What is our prcoess look like input, process, output]
+
+A note on DSOs
+    - AI should help us to delvier our DSO
+    - A generic AI strategy should not necessarily be phrased in terms of DSOs. Why?
+    - We already carries out functions in terms of DSOs - AI can either deliver those DSO benefits or not, and it can either deliver them better or not.
+    - The DSO justification for AI in general is as superficial as the jusitification for using a computer - it can make life cheaper, quicker and better.
+    - If AI can answer the phones, that doesn't sui generis change the benefits of answering the phones, only the cost and efficiency.
+    - There is an edge case, which is where AI lets us do something we couldn't have done before because it was too time consuming or too difficult.
+    - Then we need to make a new case in terms of DSOs because we're not sure if the task is inherently worth doing. 
+    - For example, NLP based translation services would allow staff to routinely inspect tax documents from other countries without the cost of a translator, but we don't do it now and don't know what the benefit would be.
+    - The magic square:
+        - We can already eat steak without special tools, but knives make eating steak easier so we use them. (Existing benefits, with new tools)
+        - It's hard to eat lobster without special lobster eating cutlery, so we use the special tools. (New benefits, with new tools)
+        - It's also hard to eat rocks without special tools, but we don't bother with those tools. (No benefits, with new tools)
+        - For completeness, some tasks (sandwiches) don't need new tools.
+    - There is no way to distinguish between potential AI applications on a theoretical level - it's the combination of task and tool which defines the exact form of the benefits case.
+    
+    
+Types of goal for applications / Applications (?)
+
+
+Make routine tasks automatic
+Letter generation
+Tailored advice
+Automatic information provision for staff
+Real time script generation for contact staff
+Intelligent prompts for customers (Personalisation)
+Case allocation for regions
+[Clever spell checking]
+[auto translation]
+Identify anomolous behaviour automatically (risk, error, unknown threats, cyber sec)
+Improving website and guidance usibility
+
+
+[What can Amazon Echo do?]
+[Language generation]
+[self-driving cars]
+[IoT]
+
+
+Approaches
+
+Contracted out
+Off the self products
+In house capability
+
+Barriers
+
+Tier 1
+Identifying areas for Applications
+
+    -industry use cases
+    -staff workshops
+Complexity of the problem
+complexity of the solutions
+Credibility of the solutions
+Legislative (?)
+Ethical (?)
+The 1984 effect (can staff trust us?)
+
+Tier 2
+Environments
+Tooling
+Data
+Capability (?)
+
+Ideas
+
+Replace mundane low value tasks with higher value tasks (reading letters? )
+Provide intelligent assistance to staff (see Fujitsu)
+Identify anomolous behaviour automatically, especially  (see Dark Trace)
+Improve customer service (recorded speech to test, correlate with outcomes)
+Improve routing (short calls ?)
+Identify blockers (going further than letter sorting (e.g. IT behaviour)
