@@ -48,6 +48,7 @@ This is still too generic, we need to define different inputs.
     - Images (of things, of documenets)
     - Text (typed, handwriited)
     - Audio
+    - Sensor data
     - Strutured data
 
 Now we can populate each square with examples:
