@@ -1,13 +1,25 @@
-Linux Set Up
+Laptop Set Up Guide
 
-Firefox plugins:
+General Tools
+
+Firefox plugins
 
 ghostery - https://www.ghostery.com/?utm_source=ghostery.com&utm_campaign=install_ghostery_hp
 adblock ultimate - https://addons.mozilla.org/en-GB/firefox/addon/adblocker-ultimate/
 
+Flash 
+
+sudo apt install flashplugin-installer
+
 Chromium
 
 sudo apt-get install chromium-browser
+
+TOR - https://www.torproject.org/projects/torbrowser.html.en 
+
+tar -C /home/de-admin/Documents/ -xvJf tor-browser-linux64-7.5.6_en-US.tar.xz 
+cd /home/de-admin/Documents/tor-browser_en-US/
+./start-tor-browser.desktop
 
 Deluge Client – (distributed filesharing) https://dev.deluge-torrent.org/wiki/Installing/Linux/Ubuntu#AddDelugePPARepository
 
@@ -28,6 +40,10 @@ gbedi – for installing deb packages
 
 sudo apt-get install gdebi-core
 
+curl - 
+
+sudo apt-get install curl
+
 GIMP - https://www.gimp.org/downloads/
 
 flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
@@ -42,7 +58,7 @@ install in /opt/foxitreader
 rm FoxitReader2.4.1.0609_Server_x64_enu_Setup.run.tar.gz
 rm FoxitReader.enu.setup.2.4.1.0609\(r08f07f8\).x64.run
 
-google drive cli - https://github.com/odeke-em/drive
+google drive cli- https://github.com/odeke-em/drive
 
 sudo add-apt-repository ppa:twodopeshaggy/drive
 sudo apt-get update
@@ -52,6 +68,17 @@ drive init ~/gdrive
 get credentials on prompt
 cd ~/gdrive
 test - drive pull
+
+GEOS - https://trac.osgeo.org/geos 
+
+Most of this is already installed by default, but the dev package is required for basemap
+sudo apt-get install libgeos-dev
+
+basemap - https://matplotlib.org/basemap/users/installing.html
+
+Download the file
+python setup.py install --user
+Check your installation by running from mpl_toolkits.basemap import Basemap at the python prompt.
 
 Development tools
 
@@ -67,7 +94,7 @@ cd /home/de-admin/Downloads
 sudo gdebi rstudio-xenial-1.1.453-amd64.deb
 rm rstudio-xenial-1.1.453-amd64.deb
 
-Rshiny server - https://www.rstudio.com/products/shiny/download-server/
+RShiny server - https://www.rstudio.com/products/shiny/download-server/
 
 sudo su - \ -c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
 cd /home/de-admin/Downloads
@@ -82,11 +109,15 @@ sudo apt install python3-pip
 test - pip3 -V
 pip3 install --upgrade pip
 
+python3 -m pip install --upgrade pip setuptools wheel --user
+
 Python 2.7 - 
 
 sudo apt install python2.7 python-pip
 test – python -V
 test - pip -V
+
+python -m pip install --upgrade pip setuptools wheel --user
 
 Java JRE/JDK – http://openjdk.java.net/install/
 
@@ -117,10 +148,9 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD7
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 sudo apt-get update
 sudo apt-get install mongodb-org
-sudo service mongod start
-mongo --host 127.0.0.1:27017
+sudo mongod
+mongo
 quit
-sudo service mongod stop
 
 Apache - http://httpd.apache.org/docs/current/install.html
 
@@ -128,7 +158,7 @@ sudo apt install apache2
 test - sudo service apache2 start
 go to http://127.0.0.1/
 
-Mysql - https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#repo-qg-apt-repo-manual-setup
+MySql - https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/#repo-qg-apt-repo-manual-setup
 
 sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb
 sudo apt-get update
@@ -142,11 +172,52 @@ sudo apt-get install mysql-workbench
 test - mysql-workbench
 
 PHP - http://php.net/manual/en/install.unix.debian.php
+
 sudo apt-get install php7.2-common libapache2-mod-php7.2 php7.2-cli
 test - php -version
 
-jupyter notebook - http://jupyter.org/install
-https://ipython.readthedocs.io/en/stable/install/kernel_install.html
+Neo4j - https://debian.neo4j.org/
+
+wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
+echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee /etc/apt/sources.list.d/neo4j.list
+sudo apt-get update
+sudo apt-get install neo4j
+ 
+APOC – (proceedures for Neo4j) https://github.com/neo4j-contrib/neo4j-apoc-procedures
+
+download latest .jar file
+sudo mv apoc-3.4.0.1-all.jar /var/lib/neo4j/plugins/
+
+Gephi – (Network visualiser) https://gephi.org/
+
+download latest version (https://gephi.org/users/download/)
+sudo tar -xzf gephi-0.9.2-linux.tar.gz -C /opt/ 
+
+Hadoop - 
+sudo apt-get insstall openssh-server
+ssh-keygen -P “”
+ssh-copy-id localhost
+Download latest version: http://hadoop.apache.org/releases.html
+sudo tar xzf /home/de-admin/Downloads/hadoop-3.1.1.tar.gz -C /opt/
+sudo chown de-admin:de-admin /opt/hadoop-3.1.1/
+sudo ln -s /opt/hadoop-3.1.1 /opt/hadoop
+Add “:/opt/hadoop/bin” to path in /etc/environment 
+mkdir /opt/hadoop/tmp
+set hadoop environment options (at least hadoop.tmp.dir and fs.defaultFS)
+/opt/hadoop/sbin/start-dfs.sh
+ss -pltn | grep java
+http://localhost:44023/
+
+Flume - https://flume.apache.org/
+Download latest version : https://flume.apache.org/download.html
+sudo tar xzf /home/de-admin/Downloads/apache-flume-1.8.0-bin.tar.gz -C /opt/
+sudo chown de-admin:de-admin /opt/apache-flume-1.8.0-bin/
+sudo ln -s /opt/apache-flume-1.8.0-bin /opt/flume
+Add “:/opt/flume/bin” to path in /etc/environment
+Add “FLUME_HOME=/opt/flume” to /etc/environment
+set flume environment options (at least JAVA_HOME, source, channel and sink)
+
+jupyter notebook - http://jupyter.org/install https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 
 python3 -m pip install jupyter ipykernel --user
 python3 -m ipykernel install –user (probably not needed)
@@ -169,3 +240,160 @@ git command line -
 sudo add-apt-repository ppa:git-core/ppa 
 sudo apt-get update
 sudo apt-get install git
+git large file storage - https://git-lfs.github.com\ 
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs
+git lfs install --force –skip-repo
+
+audiotools - http://audiotools.sourceforge.net/install.html
+
+sudo apt-get install libmpg123-dev 
+sudo apt-get install libmp3lame-dev
+
+Download file
+tar -xzvf audiotools-3.1.1.tar.gz 
+cd audiotools-3.1.1/
+sudo make install
+test – audiotools-config
+Other components required for audio analysis
+swig - sudo apt-get install swig
+pulse - sudo apt-get install libpulse-dev
+alsa headers-  sudo apt-get install libasound2-dev
+
+Mozilla DeepSpeech - https://github.com/mozilla/DeepSpeech 
+
+git clone https://github.com/mozilla/DeepSpeech
+wget -O - https://github.com/mozilla/DeepSpeech/releases/download/v0.1.1/deepspeech-0.1.1-models.tar.gz | tar xvfz -
+
+
+Python packages
+
+numpy - http://www.numpy.org/
+pandas - https://pandas.pydata.org/
+scipy - https://www.scipy.org/ 
+matplotlib - https://matplotlib.org/ 
+seaborn - https://seaborn.pydata.org/ 
+plotly - https://plot.ly/python/ 
+requests - http://docs.python-requests.org/en/master/user/install/ 
+Flask - http://flask.pocoo.org/ 
+bottle - https://bottlepy.org/docs/dev/ 
+Scrapy - https://doc.scrapy.org/en/latest/index.html
+statsmodles - https://www.statsmodels.org/stable/index.html 
+scikit-learn-  http://scikit-learn.org/stable/index.html
+tensorflow - (CPU version) https://www.tensorflow.org/
+keras - https://keras.io/
+nltk - https://www.nltk.org/
+Pillow - https://pillow.readthedocs.io/en/5.2.x/
+opencv-python - (opencv) https://docs.opencv.org/3.0-beta/index.html 
+ewmh - http://ewmh.readthedocs.io/en/latest/ewmh.html 
+pyautogui - http://pyautogui.readthedocs.io/en/latest/index.html 
+mysql - https://dev.mysql.com/doc/connector-python/en/
+palletable - https://jiffyclub.github.io/palettable/
+mpld3 - http://mpld3.github.io/install.html
+wordcloud - https://github.com/amueller/word_cloud
+beautifulsoup4 - https://www.crummy.com/software/BeautifulSoup/bs4/doc/ 
+pyproj - https://github.com/jswhit/pyproj
+SpeechRecognition - https://github.com/Uberi/speech_recognition 
+PocketSphinx - https://github.com/cmusphinx/pocketsphinx
+virtualenv - https://virtualenv.pypa.io/en/stable/
+wedrtcvad - https://github.com/wiseman/py-webrtcvad 
+mwparserfromhell - https://github.com/earwig/mwparserfromhell/ 
+xgboost - http://xgboost.readthedocs.io/en/latest/
+textblob - http://textblob.readthedocs.io/en/dev/index.html
+neo4j-driver - https://neo4j.com/developer/python/ 
+pymongo - https://api.mongodb.com/python/current/
+
+python3 -m pip install numpy --user
+python3 -m pip install pandas --user
+python3 -m pip install scipy --user
+python3 -m pip install matplotlib --user
+python3 -m pip install seaborn --user
+python3 -m pip install plotly --user
+python3 -m pip install requests --user
+python3 -m pip install Flask --user
+python3 -m pip install bottle --user
+python3 -m pip install Scrapy --user
+python3 -m pip install statsmodels --user
+python3 -m pip install scikit-learn --user
+python3 -m pip install tensorflow --user
+python3 -m pip install keras --user
+python3 -m pip install nltk --user
+python3 -m nltk.downloader all
+python3 -m pip install Pillow --user
+python3 -m pip install opencv-python --user
+python3 -m pip install ewmh --user
+python3 -m pip install pyautogui --user
+python3 -m pip install mysql-connector-python-rf --user
+python3 -m pip install palettable --user
+python3 -m pip install mpld3 --user
+python3 -m pip install wordcloud --user
+python3 -m pip install beautifulsoup4 --user
+python3 -m pip install pyproj --user
+python3 -m pip install SpeechRecognition --user
+python3 -m pip install pocketsphinx --user
+python3 -m pip install virtualenv --user
+python3 -m pip install deepspeech --user
+python3 -m pip install --upgrade deepspeech --user
+python3 -m pip install webrtcvad --user
+python3 -m pip install mwparserfromhell --user
+python3 -m pip install xgboost --user
+python3 -m pip install textblob --user
+python3 -m pip install neo4j-driver --user
+python3 -m pip install pymongo --user
+
+python -m pip install numpy --user
+python -m pip install pandas --user
+python -m pip install scipy --user
+python -m pip install matplotlib --user
+python -m pip install seaborn --user
+python -m pip install plotly --user
+python -m pip install requests --user
+python -m pip install Flask --user
+python -m pip install bottle --user
+python -m pip install Scrapy --user
+python -m pip install statsmodels --user
+python -m pip install scikit-learn --user
+python -m pip install tensorflow --user
+python -m pip install keras --user
+python -m pip install nltk --user
+python -m pip install Pillow --user
+python -m pip install opencv-python --user
+python -m pip install ewmh --user
+python -m pip install pyautogui --user
+python -m pip install mysql-connector-python-rf --user
+python -m pip install palettable --user
+python -m pip install mpld3 --user
+python -m pip install wordcloud --user
+python -m pip install beautifulsoup4 –user
+python -m pip install pyproj --user
+python -m pip install SpeechRecognition --user
+python -m pip install pocketsphinx --user
+python -m pip install monotonic --user
+python -m pip install virtualenv --user
+python -m pip install webrtcvad --user
+python -m pip install mwparserfromhell --user
+python -m pip install xgboost --user
+python -m pip install textblob --user
+python -m pip install neo4j-driver --user
+python -m pip install pymongo --user
+
+[more complex instalations, for later]
+Theano - http://deeplearning.net/software/theano/
+python3 -m pip install Theano --user
+python -m pip install Theano --user
+tensorflow-gpu (CPU version) - https://www.tensorflow.org/
+python3 -m pip install tensorflow-gpu --user
+python -m pip install tensorflow-gpu –user
+tensorflow – (CRU Arch Specific) https://github.com/lakshayg/tensorflow-build 
+python3 -m pip install --ignore-installed --upgrade "https://github.com/sigilioso/tensorflow-build/raw/master/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl"
+python -m pip install --ignore-installed --upgrade "https://github.com/lakshayg/tensorflow-build/raw/master/tensorflow-1.4.0-cp27-cp27mu-linux_x86_64.whl"
+Open Data Corpora
+
+https://en.wikipedia.org/wiki/List_of_datasets_for_machine_learning_research
+
+transcribed audio - https://www.openslr.org/51/
+
+From https://voice.mozilla.org/en/data
+54Gb of transcribed TED talks
+
+
